@@ -1,0 +1,51 @@
+<%- include("layout/header") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 mx-auto mt-4">
+            <div class="card shadow">
+                <div class="card-header " style="background-color: #fc0303;">
+                    <h3 class="text-light">Details about <%= hero.nickname %> </h3>
+                </div>
+                <div class="card-body p-4">
+                    <form action="/show/<%= hero._id %> " method="post" id="add-form" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <img src="/<%= hero.image %> " width="300" class="img-thumbnail mt-1"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="nickname">Nickname:</label>
+                            <br>
+                            <text class="form-control form-control-lg"><%= hero.nickname %></text>
+                        </div>
+                        <div class="mb-3">
+                            <label for="real_name">Real Name:</label>
+                            <br>
+                            <text class="form-control form-control-lg"><%= hero.real_name %></text>
+                        </div>
+                        <div class="mb-3">
+                            <label for="origin_description">Origin Description:</label>
+                            <br>
+                            <text class="form-control form-control-lg"><%= hero.origin_description %></text>
+                        </div>
+                        <div class="mb-3">
+                            <label for="superpowers">Superpowers:</label>
+                            <br>
+                            <text class="form-control form-control-lg"><%= hero.superpowers %></text>
+                        </div>
+                        <div class="mb-3">
+                            <label for="catch_phrase">Catch Phrase:</label>
+                            <br>
+                            <text class="form-control form-control-lg"><%= hero.catch_phrase %></text>
+                        </div>
+                        <div class="mb-3 d-grid">
+                            <a href="/" class="btn btn-primary" style="background-color: #fc0303;">Go Home</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%- include("layout/footer") %>
