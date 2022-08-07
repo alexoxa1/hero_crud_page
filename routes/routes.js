@@ -85,6 +85,11 @@ router.post("/update/:id", upload, (req, res) => {
 
     if(req.file){
         new_image = req.file.filename;
+        try {
+            fs.unlinkSync("./uploads/"+req.body.old_image);
+        } catch (err) {
+            console.log(err);
+        }
     } else {
         new_image = req.body.old_image;
     }
@@ -97,13 +102,6 @@ router.post("/update/:id", upload, (req, res) => {
         catch_phrase: req.body.catch_phrase,
         image: new_image,
     }, (err, result) => {
-        if(result.image != req.body.old_image){
-            try{
-                fs.unlinkSync("./uploads/"+result.image);
-            } catch(err){
-                console.log(err);
-            }
-        }
 
         if(err){
             res.json({ message: err.message, type: "danger" });
